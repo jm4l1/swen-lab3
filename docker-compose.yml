@@ -1,0 +1,49 @@
+version: '3.3'
+
+networks:
+  privatenetwork:
+    ipam:
+      config:
+        - subnet: 192.168.23.0/24
+
+services:
+  web_server:
+    build:
+      context: .
+      dockerfile: server.dockerfile
+    ports:
+      - 5000:5000
+    hostname: web_server
+    networks:
+      - privatenetwork
+    environment:
+      - KEY=swen2003202410
+    volumes:
+      - ./output/:/tmp/output
+
+  host1:
+    build:
+      context: .
+      dockerfile: host.dockerfile
+    environment:
+      - USER_NAME=host1
+      - SERVER_NAME=web_server
+      - SERVER_PORT=5000
+    cap_add: 
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      - privatenetwork
+      
+  attacker:
+    build:
+      context: .
+      dockerfile: attacker.dockerfile
+    cap_add: 
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      privatenetwork:
+        mac_address: "02:20:03:11:20:03"
+    volumes:
+      - ./code/:/code:rw
