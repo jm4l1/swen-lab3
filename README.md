@@ -13,7 +13,7 @@ In this lab we will be performing an attack on a simple network using ARP to tak
 - Start docker if required (Windows and Mac)
 - Open a terminal window and type `docker compose up` , this will start all the machines in the network.
 - Open the project in `VS code` and complete all `todos` in the file
-- Open a second terminal window and connect to the attacker host `docker exec -it lab2-attacker-1 bash`.
+- Open a second terminal window and connect to the attacker host `docker compose exec -it attacker bash`.
 - While in the attacker container, run the command `python3 arpspoof.py`
 
 ## Submission
