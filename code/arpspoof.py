@@ -55,7 +55,7 @@ def main():
     print("Starting Packet Sniffing")
 
     # TODO - get the ip of host1 using a function in the socket library (https://docs.python.org/3/library/socket.html)
-    host1_ip = socket.<add_function_here>()
+    host1_ip = socket.<add_function_here>( )
     print("detected host1 ip : %s " % host1_ip)
     host1_mac = get_mac(host1_ip)
     print("detected host1 mac : %s " % host1_mac)
