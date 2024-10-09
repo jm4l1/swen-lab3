@@ -22,7 +22,7 @@ def perform_spoof(victim_ip, victim_mac, spoofed_ip):
                        # correctly perform the arp spoof to the victim.
                        # refer to https://scapy.readthedocs.io/en/latest/api/scapy.layers.l2.html
                        # for information
-                       pdst=,
+                       pdst=1234,
                        hwdst=,
                        psrc=,
                        hwsrc=,
